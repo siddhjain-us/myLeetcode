@@ -1,0 +1,46 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class LeetCode_2_AddTwoNumbers:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        num1 = 0
+        num2 = 0
+        i = 0
+        while(l1 is not None):
+            num1 = num1 + l1.val*(10**i)
+            # print(f"\nNum1 : {num1}, i : {i}")
+            i = i+1
+            l1 = l1.next
+
+        i=0
+        while(l2 is not None):
+            num2 = num2 + l2.val*(10**i)
+            # print(f"\nNum2 : {num2}, i : {i}")
+            i = i+1
+            l2 = l2.next
+            
+
+
+        num3 = num1+num2
+        if(num3 == 0):
+            return ListNode(0)
+        head = None
+        while(num3 > 0):
+            digit = num3%10
+            if(head is None):
+                head = ListNode(digit)
+                curr = head
+            else:
+                curr.next = ListNode(digit)
+                curr = curr.next
+            num3 = num3 // 10
+        return head
+
+        
+
+            
+        
+        
+        
